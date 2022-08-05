@@ -71,13 +71,19 @@ class World3D
 
 class Object
 {
-    Creates objects and add them to 3d array.
+    Creates objects and rotates them by class Math2{}.
+    Then adds objects to 3d array.
 }
 
 class Converter
 {
     Converts 3d array to 2d array.
     Connverter does not support perspective.
+}
+
+class Math2
+{
+    Rotates positions of objects one by one.
 }
 ```
 
