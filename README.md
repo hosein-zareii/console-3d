@@ -5,43 +5,43 @@ A program which can create 3D objects in console.
 
 ## sample usage
 ```c#
-        Window win = new Window(35, 36);
-        World3D world = new World3D(1/*total objects*/, new Vector3(35, 36, 36)/*world size*/);
-        
-        /*backgRound*/
-        E.empty = " ";
-        
-        //create object
+Window win = new Window(35, 36);
+World3D world = new World3D(1/*total objects*/, new Vector3(35, 36, 36)/*world size*/);
 
-        // "cube" , "line" , "custom"
-        Object o1 = new Object("cube");
-        o1.rotationPoint = new Vector3(10,10,10);
-        o1.fill = "#";
-        o1.sortRotate[0] = "Y";//first 
-        o1.sortRotate[1] = "X";//second
-        o1.sortRotate[2] = "Z";//third
-        o1.position = new Vector3(7, 8, 8);
-        o1.rotation = new Vector3(0, 0, 0);
-        o1.scale.x = 21;
-        o1.scale.y = 21;
-        o1.scale.z = 21;
-        
-        
-        world.add(o1, 0);
-        OrthographicCamera cam = new OrthographicCamera(world, win);
-        cam.position = new Vector3(0, 0, 0);
-        
-        while (true)
-        {
+/*backgRound*/
+E.empty = " ";
 
-            world.update();
-            cam.update();
-            win.show(cam);
-            Thread.Sleep(50);
-            System.Console.Clear();
-            o1.rotation.y += 5;
-            
-        }
+//create object
+
+// "cube" , "line" , "custom"
+Object o1 = new Object("cube");
+o1.rotationPoint = new Vector3(10,10,10);
+o1.fill = "#";
+o1.sortRotate[0] = "Y";//first 
+o1.sortRotate[1] = "X";//second
+o1.sortRotate[2] = "Z";//third
+o1.position = new Vector3(7, 8, 8);
+o1.rotation = new Vector3(0, 0, 0);
+o1.scale.x = 21;
+o1.scale.y = 21;
+o1.scale.z = 21;
+
+
+world.add(o1, 0);
+OrthographicCamera cam = new OrthographicCamera(world, win);
+cam.position = new Vector3(0, 0, 0);
+
+while (true)
+{
+
+    world.update();
+    cam.update();
+    win.show(cam);
+    Thread.Sleep(50);
+    System.Console.Clear();
+    o1.rotation.y += 5;
+
+}
 ```
 
 
