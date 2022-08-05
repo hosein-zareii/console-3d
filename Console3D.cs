@@ -144,7 +144,7 @@ class Window
 
         int ix = 0;
         int iy = 0;
-        string[] wa = new string[(lx*ly)+ly];
+        string[] wa = new string[lx*ly];
         int i = 0;
 
         while (iy < ly)
@@ -182,7 +182,6 @@ class Window
             }
             ix = 0;
             iy++;
-            i++;
         }
         Console.Write( String.Join("",wa) );
 
