@@ -18,10 +18,6 @@ First download the file.
 ```
 wget https://raw.githubusercontent.com/Hosein-Zarei2/console-3d/main/Program.cs
 ```
-Give it premission to run.
-```
-sudo chmod a+x Program.cs
-```
 
 Install mono-complete
 ```
@@ -30,11 +26,11 @@ sudo apt install mono-complete
 ```
 Compile the program
 ```
-sudo mcs Program.cs
+mcs Program.cs
 ```
 Run it! :video_game:
 ```
-sudo mono Program.exe
+mono Program.exe
 ```
 Use the arrow keys to rotate. :arrow_left: :arrow_right: :arrow_down: :arrow_up:
 
