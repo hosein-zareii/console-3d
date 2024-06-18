@@ -1,19 +1,16 @@
 using System;
 
 
-// in the name of god 
-// created by hosein zarei
-
 public class Console3D
 {
 
     public static void Main(String[] args)
     {
-        Console.Title = "3D in console";
-        Console.ForegroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = ConsoleColor.Red;
+        /*Console.Title = "3D in console";
         Console.CursorVisible = false;
         Console.BufferHeight = 35;
-        Console.WindowHeight = 35;
+        Console.WindowHeight = 35;*/
 
         // (window & world)***
         Window win = new Window(35, 36);
@@ -64,48 +61,34 @@ public class Console3D
 
         while (true)
         {
-
+            System.Console.Clear();
             world.update();
             cam.update();
             win.show(cam);
             
 
-            try
-            {
-                //Thread.Sleep(50);
-                //System.Console.Clear();
-                //o1.rotation.y += 5;
-                //o1.rotation.x += 5;
-                
-            }
-            catch (Exception e) { Console.WriteLine("error line 79  " + e.Message); }
-
             switch ( Console.ReadKey().Key )
             {
                 case ConsoleKey.LeftArrow:
-                    //System.Console.Clear();
                     o1.rotation.y += 5;
                 break;
+                    
                 case ConsoleKey.RightArrow:
-                    //System.Console.Clear();
                     o1.rotation.y -= 5;
                 break;
 
                 case ConsoleKey.UpArrow:
-                    //System.Console.Clear();
                     o1.rotation.x -= 5;
-                    break;
+                break;
+                    
                 case ConsoleKey.DownArrow:
-                    //System.Console.Clear();
                     o1.rotation.x += 5;
                 break;
 
                 case ConsoleKey.D:
-                    //System.Console.Clear();
                     o1.position.x += 1;
                 break;
                 case ConsoleKey.A:
-                    //System.Console.Clear();
                     o1.position.x -= 1;
                 break;
             }
@@ -176,7 +159,7 @@ class Window
                     }
                     
                 }
-                catch (Exception e) { Console.WriteLine("error line 121  " + e.Message); }
+                catch (Exception e) { Console.WriteLine("Error on Window->show()! Err: " + e.Message); }
                 ix++;
                 i++;
             }
@@ -404,7 +387,7 @@ class Object
             {
                 world.positions[y + position.y,x + position.x,z + position.z] = fill;
             }
-            catch (Exception e) { /*Console.WriteLine("error line 419  " + e.Message);*/ }
+            catch (Exception e) {Console.WriteLine("Error on Object->cube()! Err: " + e.Message);}
 
             c++;
         }
@@ -448,7 +431,7 @@ class Object
             {
                 world.positions[y + position.y,x + position.x,z + position.z] = fill;
             }
-            catch (Exception e) { /*Console.WriteLine("error line 450  " + e.Message);*/ }
+            catch (Exception e) {Console.WriteLine("Error on Object->line_in3D()! Err: " + e.Message);}
 
             c++;
 
@@ -481,7 +464,7 @@ class Object
             {
                 world.positions[y + position.y,x + position.x,z + position.z] = fill;
             }
-            catch (Exception e) { Console.WriteLine("error line 494  " + e.Message); }
+            catch (Exception e) { Console.WriteLine("Error on Object->custom_obj()! Err: " + e.Message); }
 
             i++;
 
