@@ -9,7 +9,9 @@ Unfortunately, it only supports orthographics for now and doesn't support perspe
 
 *video:*
 
-![Console3D](3D-in-console.gif)
+![Line](line.gif)
+
+![Cube](cube.gif)
 
 ## run on linux
 First download the file.
