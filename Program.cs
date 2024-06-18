@@ -90,6 +90,9 @@ public class Program
                 case ConsoleKey.A:
                     o1.position.x -= 1;
                 break;
+                case ConsoleKey.Q:
+                    System.Environment.exit(1);
+                break;
             }
 
         }
