@@ -1,10 +1,47 @@
-# 3D-in-console
-A program which can create 3D objects in console.
+# 3D on the console
+
+It is just for fun. :joystick:
+
+This program can create 3D objects on the console (line, cube, and custom object).
+
+Unfortunately, it only supports orthographics for now and doesn't support perspective.
+
 
 *video:*
+
 ![Console3D](3D-in-console.gif)
 
-## sample usage
+## run on linux
+First download the file.
+```
+wget https://raw.githubusercontent.com/Hosein-Zarei2/console-3d/main/Program.cs
+```
+Give it premission to run.
+```
+sudo chmod a+x Program.cs
+```
+
+Install mono-complete
+```
+sudo apt update && sudo apt upgrade
+sudo apt install mono-complete
+```
+Compile the program
+```
+sudo mcs Program.cs
+```
+Run it! :video_game:
+```
+sudo mono Program.exe
+```
+Use the arrow keys to rotate. :arrow_left: :arrow_right: :arrow_down: :arrow_up:
+
+Use $\textcolor{yellow}{A}$ and $\textcolor{yellow}{D}$ to move it left and right.
+
+Press $\textcolor{red}{Q}$ to quit the program.
+
+
+## main code
 ```c#
 Window win = new Window(35, 36);
 World3D world = new World3D(1/*total objects*/, new Vector3(35, 36, 36)/*world size*/);
@@ -87,3 +124,9 @@ class Math2
 }
 ```
 
+Make me bilionare :moneybag:
+
+My ton address: (TON)
+```
+UQBIoYcaQTX7gBeuPQHlVL6KaNTQGXgKBICkGk9fqOCRLX4b
+```
