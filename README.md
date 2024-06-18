@@ -16,7 +16,7 @@ Unfortunately, it only supports orthographics for now and doesn't support perspe
 ## run on linux
 First download the file.
 ```
-wget https://raw.githubusercontent.com/Hosein-Zarei2/console-3d/main/Program.cs
+wget https://raw.githubusercontent.com/hosein-zareii/console-3d/main/Program.cs
 ```
 
 Install mono-complete
