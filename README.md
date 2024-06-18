@@ -5,13 +5,13 @@ It is just for fun. :joystick:
 This program can create 3D objects on the console (line, cube, and custom object).
 
 Unfortunately, it only supports orthographics for now and doesn't support perspective.
+<br/>
 
+*picture:*
 
-*video:*
+![Cube](cube.png)
 
-![Line](line.gif)
-
-![Cube](cube.gif)
+<br/>
 
 ## run on linux
 First download the file.
