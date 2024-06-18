@@ -79,10 +79,11 @@ while (true)
 
 }
 ```
-
+<br/>
 <details>
 <summary>Description of classes</summary>
 <br/>
+    
 ```c#
 
 class window
@@ -121,7 +122,9 @@ class Math2
     Rotates positions of objects one by one.
 }
 ```
-<details>
+</details>
+<br/>
+
 Make me bilionare :moneybag:
 
 My ton address: (TON)
