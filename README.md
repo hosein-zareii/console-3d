@@ -9,7 +9,7 @@ Unfortunately, it only supports orthographics for now and doesn't support perspe
 
 *picture:*
 
-![Cube](cube.png)
+![Cube and line](cube_line.png)
 
 <br/>
 
