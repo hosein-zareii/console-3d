@@ -1,24 +1,21 @@
 using System;
+using System.Collections.Generic; 
 
 public class Program
 {
 
     public static void Main(String[] args)
     {
-        Console.ForegroundColor = ConsoleColor.Red;
-        /*Console.Title = "3D in console";
-        Console.CursorVisible = false;
-        Console.BufferHeight = 35;
-        Console.WindowHeight = 35;*/
 
         // (window & world)***
         Window win = new Window(35, 36);
-        World3D world = new World3D(1/*total objects*/, new Vector3(35, 36, 36)/*world size*/);
+        World3D world = new World3D(2/*total objects*/, new Vector3(35, 36, 36)/*world size*/);
         
 
-        /*backgRound*/
+        /*backgRound & color*/
         E.empty = " ";
-
+        win.COLORS["#"] = ConsoleColor.Red;
+        win.COLORS["o"] = ConsoleColor.Blue;
 
 
         //(objects)***
@@ -31,11 +28,22 @@ public class Program
         o1.sortRotate[0] = "Y";//first 
         o1.sortRotate[1] = "X";//second
         o1.sortRotate[2] = "Z";//third
-        o1.position = new Vector3(7, 8, 8);
+        o1.position = new Vector3(5, 5, 8);
         o1.rotation = new Vector3(0, 0, 0);
         o1.scale.x = 21;
         o1.scale.y = 21;
         o1.scale.z = 21;
+	  
+        Object o2 = new Object("line");
+        o2.rotationPoint = new Vector3(0,0,0);
+        o2.fill = "o";
+        //(sortRotate) 
+        o2.sortRotate[0] = "Y";//first 
+        o2.sortRotate[1] = "X";//second
+        o2.sortRotate[2] = "Z";//third
+        o2.position = new Vector3(15, 15, 2);
+        o2.rotation = new Vector3(0, 0, 90);
+        o2.scale.x = 10;
         
 
         /*o1.customPoints = new Vector3[1];
@@ -46,6 +54,7 @@ public class Program
         //(add objects to world)***
 
         world.add(o1, 0);
+        world.add(o2, 1);
 
 
         //(Orthographic Camera)***
@@ -53,7 +62,7 @@ public class Program
         OrthographicCamera cam = new OrthographicCamera(world, win);
         cam.position = new Vector3(0, 0, 0);
 
-
+		
 
         //(show in window)***
         
@@ -87,11 +96,21 @@ public class Program
                 case ConsoleKey.D:
                     o1.position.x += 1;
                 break;
+		    
                 case ConsoleKey.A:
                     o1.position.x -= 1;
                 break;
+		    
+                case ConsoleKey.W:
+                    o1.position.y -= 1;
+                break;
+		    
+                case ConsoleKey.S:
+                    o1.position.y += 1;
+                break;
+		    
                 case ConsoleKey.Q:
-                    System.Environment.exit(1);
+                    return;
                 break;
             }
 
@@ -104,12 +123,14 @@ public class Program
 
 
 
-// version 1.4
+// version 1.0
 
 
 class Window
 {
     public String[,] window;
+    char[] CHARS_TO_CUT = {' ','\n'};
+    public Dictionary<string, ConsoleColor> COLORS = new Dictionary<string, ConsoleColor>();
     public int x;
     public int y;
     public Window(int x, int y)
@@ -161,14 +182,22 @@ class Window
                     }
                     
                 }
-                catch (Exception e) { Console.WriteLine("Error on Window->show()! Err: " + e.Message); }
+                catch (Exception e) {}
                 ix++;
                 i++;
             }
             ix = 0;
             iy++;
         }
-        Console.Write( String.Join("",wa) );
+	  
+	  foreach(string wai in wa)
+	  {
+		if(wai != " " && wai != "  " && wai != "  \n")
+		{
+		  Console.ForegroundColor = COLORS[(wai.TrimEnd(CHARS_TO_CUT))];
+		}
+		Console.Write(wai);
+	  }
 
     }
 
@@ -225,7 +254,7 @@ class World3D
         this.size = size;
     }
 
-    Object[] objects()
+    public Object[] objects()
     {
         return objs;
     }
@@ -389,7 +418,7 @@ class Object
             {
                 world.positions[y + position.y,x + position.x,z + position.z] = fill;
             }
-            catch (Exception e) {Console.WriteLine("Error on Object->cube()! Err: " + e.Message);}
+            catch (Exception e) {}
 
             c++;
         }
@@ -433,7 +462,7 @@ class Object
             {
                 world.positions[y + position.y,x + position.x,z + position.z] = fill;
             }
-            catch (Exception e) {Console.WriteLine("Error on Object->line_in3D()! Err: " + e.Message);}
+            catch (Exception e) {}
 
             c++;
 
@@ -466,7 +495,7 @@ class Object
             {
                 world.positions[y + position.y,x + position.x,z + position.z] = fill;
             }
-            catch (Exception e) { Console.WriteLine("Error on Object->custom_obj()! Err: " + e.Message); }
+            catch (Exception e) {}
 
             i++;
 
@@ -520,8 +549,7 @@ class Converter
                             window[iy,ix] = world.positions[iy + camPos.y,ix + camPos.x,iz + camPos.z];
                         }
                     }
-                    catch (Exception e)
-                    { Console.WriteLine("error line 538  " + e.Message); }
+                    catch (Exception e){}
                     ix++;
                 }
                 ix = 0;
