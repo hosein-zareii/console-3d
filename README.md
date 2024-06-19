@@ -111,6 +111,45 @@ Press $\textcolor{red}{Q}$ to quit the program.
             cam.update();
             win.show(cam);
 
+            switch ( Console.ReadKey().Key )
+            {
+                case ConsoleKey.LeftArrow:
+                    o1.rotation.y += 5;
+                break;
+                    
+                case ConsoleKey.RightArrow:
+                    o1.rotation.y -= 5;
+                break;
+
+                case ConsoleKey.UpArrow:
+                    o1.rotation.x -= 5;
+                break;
+                    
+                case ConsoleKey.DownArrow:
+                    o1.rotation.x += 5;
+                break;
+
+                case ConsoleKey.D:
+                    o1.position.x += 1;
+                break;
+		    
+                case ConsoleKey.A:
+                    o1.position.x -= 1;
+                break;
+		    
+                case ConsoleKey.W:
+                    o1.position.y -= 1;
+                break;
+		    
+                case ConsoleKey.S:
+                    o1.position.y += 1;
+                break;
+		    
+                case ConsoleKey.Q:
+                    return;
+                break;
+            }
+
         }
 
     }
