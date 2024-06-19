@@ -41,43 +41,81 @@ Press $\textcolor{red}{Q}$ to quit the program.
 
 ## main code
 ```c#
-Window win = new Window(35, 36);
-World3D world = new World3D(1/*total objects*/, new Vector3(35, 36, 36)/*world size*/);
+    public static void Main(String[] args)
+    {
 
-/*backgRound*/
-E.empty = " ";
+        // (window & world)***
+        Window win = new Window(35, 36);
+        World3D world = new World3D(2/*total objects*/, new Vector3(35, 36, 36)/*world size*/);
+        
 
-//create object
-
-// "cube" , "line" , "custom"
-Object o1 = new Object("cube");
-o1.rotationPoint = new Vector3(10,10,10);
-o1.fill = "#";
-o1.sortRotate[0] = "Y";//first 
-o1.sortRotate[1] = "X";//second
-o1.sortRotate[2] = "Z";//third
-o1.position = new Vector3(7, 8, 8);
-o1.rotation = new Vector3(0, 0, 0);
-o1.scale.x = 21;
-o1.scale.y = 21;
-o1.scale.z = 21;
+        /*backgRound & color*/
+        E.empty = " ";
+        win.COLORS["#"] = ConsoleColor.Red;
+        win.COLORS["o"] = ConsoleColor.Blue;
 
 
-world.add(o1, 0);
-OrthographicCamera cam = new OrthographicCamera(world, win);
-cam.position = new Vector3(0, 0, 0);
+        //(objects)***
 
-while (true)
-{
+        // "cube" , "line" , "custom"
+        Object o1 = new Object("cube");
+        o1.rotationPoint = new Vector3(10,10,10);
+        o1.fill = "#";
+        //(sortRotate) 
+        o1.sortRotate[0] = "Y";//first 
+        o1.sortRotate[1] = "X";//second
+        o1.sortRotate[2] = "Z";//third
+        o1.position = new Vector3(5, 5, 8);
+        o1.rotation = new Vector3(0, 0, 0);
+        o1.scale.x = 21;
+        o1.scale.y = 21;
+        o1.scale.z = 21;
+	  
+        Object o2 = new Object("line");
+        o2.rotationPoint = new Vector3(0,0,0);
+        o2.fill = "o";
+        //(sortRotate) 
+        o2.sortRotate[0] = "Y";//first 
+        o2.sortRotate[1] = "X";//second
+        o2.sortRotate[2] = "Z";//third
+        o2.position = new Vector3(15, 15, 2);
+        o2.rotation = new Vector3(0, 0, 90);
+        o2.scale.x = 10;
+        
 
-    world.update();
-    cam.update();
-    win.show(cam);
-    Thread.Sleep(50);
-    System.Console.Clear();
-    o1.rotation.y += 5;
+        /*o1.customPoints = new Vector3[1];
+        o1.customPoints[0] = new Vector3(0, 0, 0);*/
 
-}
+
+
+        //(add objects to world)***
+
+        world.add(o1, 0);
+        world.add(o2, 1);
+
+
+        //(Orthographic Camera)***
+
+        OrthographicCamera cam = new OrthographicCamera(world, win);
+        cam.position = new Vector3(0, 0, 0);
+
+		
+
+        //(show in window)***
+        
+
+        while (true)
+        {
+            System.Console.Clear();
+            world.update();
+            cam.update();
+            win.show(cam);
+
+        }
+
+    }
+
+    
 ```
 <br/>
 <details>
