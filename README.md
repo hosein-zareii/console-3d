@@ -34,7 +34,7 @@ mono Program.exe
 ```
 Use the arrow keys to rotate. :arrow_left: :arrow_right: :arrow_down: :arrow_up:
 
-Use $\textcolor{yellow}{A}$ and $\textcolor{yellow}{D}$ to move it left and right.
+Use $\textcolor{yellow}{A}$, $\textcolor{yellow}{D}$, $\textcolor{yellow}{W}$ and $\textcolor{yellow}{S}$ to move it left, right, up and down.
 
 Press $\textcolor{red}{Q}$ to quit the program.
 
