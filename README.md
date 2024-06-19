@@ -125,7 +125,7 @@ class Math2
 </details>
 <br/>
 
-Make me bilionare :moneybag:
+Make me a billionaire :moneybag:
 
 My ton address: (TON)
 ```
