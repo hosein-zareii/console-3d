@@ -45,6 +45,8 @@ public class Program
         o2.position = new Vector3(15, 15, 2);
         o2.rotation = new Vector3(0, 0, 90);
         o2.scale.x = 10;
+
+	ox = o1;
         
 
         /*o1.customPoints = new Vector3[1];
