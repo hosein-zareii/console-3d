@@ -2,12 +2,12 @@
 
 It is just for fun. :joystick:
 
-This program can create 3D objects on the console (line, cube, and custom object).
+This program can create 3D objects on the console (line, cube, sphere, and custom object).
 
 Unfortunately, it only supports orthographics for now and doesn't support perspective.
 <br/>
 
-*picture:*
+*pictures:*
 
 ![Cube and line](cube_line.png)
 ![Cube and sphere](cube_sphere.png)
@@ -37,6 +37,8 @@ Use the arrow keys to rotate. :arrow_left: :arrow_right: :arrow_down: :arrow_up:
 
 Use $\textcolor{yellow}{A}$, $\textcolor{yellow}{D}$, $\textcolor{yellow}{W}$ and $\textcolor{yellow}{S}$ to move it left, right, up and down.
 
+Use $\textcolor{yellow}{E}$ to switch betweeen objects.
+
 Press $\textcolor{red}{Q}$ to quit the program.
 
 
@@ -58,9 +60,9 @@ Press $\textcolor{red}{Q}$ to quit the program.
 
         //(objects)***
 
-        // "cube" , "line" , "custom"
+        // "cube", "line", "sphere", "custom"
         Object o1 = new Object("cube");
-        o1.rotationPoint = new Vector3(10,10,10);
+        o1.rotationPoint = new Vector3(10,10,10);//It will rotate around this position.
         o1.fill = "#";
         //(sortRotate) 
         o1.sortRotate[0] = "Y";//first 
@@ -73,38 +75,26 @@ Press $\textcolor{red}{Q}$ to quit the program.
         o1.scale.z = 21;
 	  
         Object o2 = new Object("line");
-        o2.rotationPoint = new Vector3(0,0,0);
-        o2.fill = "o";
-        //(sortRotate) 
-        o2.sortRotate[0] = "Y";//first 
-        o2.sortRotate[1] = "X";//second
-        o2.sortRotate[2] = "Z";//third
-        o2.position = new Vector3(15, 15, 2);
-        o2.rotation = new Vector3(0, 0, 90);
-        o2.scale.x = 10;
+        o2.rotat...
         
 
-        /*o1.customPoints = new Vector3[1];
-        o1.customPoints[0] = new Vector3(0, 0, 0);*/
+        /*custom_object.customPoints = new Vector3[1];
+        custom_object.customPoints[0] = new Vector3(0, 0, 0);*/
 
 
 
         //(add objects to world)***
-
         world.add(o1, 0);
         world.add(o2, 1);
 
 
         //(Orthographic Camera)***
-
         OrthographicCamera cam = new OrthographicCamera(world, win);
         cam.position = new Vector3(0, 0, 0);
 
 		
 
         //(show in window)***
-        
-
         while (true)
         {
             System.Console.Clear();
@@ -117,38 +107,7 @@ Press $\textcolor{red}{Q}$ to quit the program.
                 case ConsoleKey.LeftArrow:
                     o1.rotation.y += 5;
                 break;
-                    
-                case ConsoleKey.RightArrow:
-                    o1.rotation.y -= 5;
-                break;
-
-                case ConsoleKey.UpArrow:
-                    o1.rotation.x -= 5;
-                break;
-                    
-                case ConsoleKey.DownArrow:
-                    o1.rotation.x += 5;
-                break;
-
-                case ConsoleKey.D:
-                    o1.position.x += 1;
-                break;
-		    
-                case ConsoleKey.A:
-                    o1.position.x -= 1;
-                break;
-		    
-                case ConsoleKey.W:
-                    o1.position.y -= 1;
-                break;
-		    
-                case ConsoleKey.S:
-                    o1.position.y += 1;
-                break;
-		    
-                case ConsoleKey.Q:
-                    return;
-                break;
+                case Conso...
             }
 
         }
