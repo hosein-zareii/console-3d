@@ -19,8 +19,9 @@ public class Program
 
 
         //(objects)***
+	Object ox;
 
-        // "cube" , "line" , "custom"
+        // "cube", "line", "sphere", "custom"
         Object o1 = new Object("cube");
         o1.rotationPoint = new Vector3(10,10,10);
         o1.fill = "#";
@@ -112,6 +113,10 @@ public class Program
                 case ConsoleKey.Q:
                     return;
                 break;
+
+		case ConsoleKey.E:
+                    if(ox == o2){ox = o1;}else{ox = o2;}
+                break;
             }
 
         }
@@ -124,6 +129,7 @@ public class Program
 
 
 // version 1.0
+
 
 
 class Window
@@ -270,6 +276,9 @@ class World3D
             case "line":
                 obj.line_in3D(this);
                 break;
+            case "sphere":
+                obj.sphere(this);
+                break;
             case "custom":
                 obj.custom_obj(this);
                 break;
@@ -290,6 +299,9 @@ class World3D
                 case "line":
                     obj.line_in3D(this);
                     break;
+                case "sphere":
+                obj.sphere(this);
+                break;
                 case "custom":
                     obj.custom_obj(this);
                     break;
@@ -451,6 +463,76 @@ class Object
         Vector3[] new_point = Math2.rotatePoint(line_points, this,this.rotationPoint);
         int c = 0;
         while (c < line_points.Length)
+        {
+
+
+            int x = new_point[c].x;
+            int y = new_point[c].y;
+            int z = new_point[c].z;
+
+            try
+            {
+                world.positions[y + position.y,x + position.x,z + position.z] = fill;
+            }
+            catch (Exception e) {}
+
+            c++;
+
+        }
+
+
+
+    }
+
+
+    public void sphere(World3D world)
+    {
+
+
+        int sx = scale.x;
+        int sy = scale.y;
+        int sz = scale.z;
+        double posx,posy,posz;
+
+        Vector3[] sphere_points = new Vector3[sx*sy];
+        int i_f = 0;
+        while(i_f<sphere_points.Length)
+        {
+            sphere_points[i_f] = new Vector3(0,0,0);
+            i_f++;
+        }
+
+        //x and y
+        int i = 0;
+        while (i < 10)
+        {
+            posx = Math.Cos(Math2.ToRadian(i*10))*sx;
+            posy = Math.Sin(Math2.ToRadian(i*10))*sx;
+            sphere_points[i] = new Vector3((int)posx, -(int)posy, 0);
+            sphere_points[i+10] = new Vector3(-(int)posx, -(int)posy, 0);
+            sphere_points[i+20] = new Vector3(-(int)posx, (int)posy, 0);
+            sphere_points[i+30] = new Vector3((int)posx, (int)posy, 0);
+            i += 1;
+        }
+
+        //z and y
+        i = 0;
+        while (i < 10)
+        {
+            posy = Math.Cos(Math2.ToRadian(i*10))*sx;
+            posz = Math.Sin(Math2.ToRadian(i*10))*sx;
+            sphere_points[i+40] = new Vector3(0, (int)posy, -(int)posz);
+            sphere_points[i+50] = new Vector3(0, -(int)posy, -(int)posz);
+            sphere_points[i+60] = new Vector3(0, -(int)posy, (int)posz);
+            sphere_points[i+70] = new Vector3(0, (int)posy, (int)posz);
+            i += 1;
+        }
+
+
+
+        Vector3[] new_point = Math2.rotatePoint(sphere_points, this,this.rotationPoint);
+        int c = 0;
+        while (c < sphere_points.Length)
         {
 
 
