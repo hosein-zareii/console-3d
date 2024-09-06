@@ -166,5 +166,5 @@ Make me a billionaire :moneybag:
 
 My ton address: (TON)
 ```
-UQBIoYcaQTX7gBeuPQHlVL6KaNTQGXgKBICkGk9fqOCRLX4b
+UQDPhvotPqZCNlY_AaLA0o6dRIdWzVLfZS-nGL7vVBhyj8gf
 ```
