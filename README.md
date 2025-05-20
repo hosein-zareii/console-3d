@@ -1,4 +1,4 @@
-# 3D on the console
+# 3D in the console
 
 It is just for fun. :joystick:
 
