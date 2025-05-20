@@ -2,7 +2,7 @@
 
 It is just for fun. :joystick:
 
-This program can create 3D objects on the console (line, cube, sphere, and custom object).
+This program can create 3D objects in the console (line, cube, sphere, and custom object).
 
 Unfortunately, it only supports orthographics for now and doesn't support perspective.
 <br/>
