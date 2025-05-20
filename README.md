@@ -162,9 +162,3 @@ class Math2
 </details>
 <br/>
 
-Make me a billionaire :moneybag:
-
-My ton address: (TON)
-```
-UQDPhvotPqZCNlY_AaLA0o6dRIdWzVLfZS-nGL7vVBhyj8gf
-```
